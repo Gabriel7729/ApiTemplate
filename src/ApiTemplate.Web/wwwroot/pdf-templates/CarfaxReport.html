@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carfax Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .header h1 {
+                margin: 0;
+            }
+
+        .vehicle-info, .events-info {
+            margin-bottom: 20px;
+        }
+
+            .vehicle-info table, .events-info table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .vehicle-info th, .vehicle-info td, .events-info th, .events-info td {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            .vehicle-info th, .events-info th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Carfax Report</h1>
+        </div>
+        <div class="vehicle-info">
+            <h2>Vehicle Information</h2>
+            <table>
+                <tr>
+                    <th>Matricula</th>
+                    <td>{{ Matricula }}</td>
+                </tr>
+                <tr>
+                    <th>Marca</th>
+                    <td>{{ Marca }}</td>
+                </tr>
+                <tr>
+                    <th>Modelo</th>
+                    <td>{{ Modelo }}</td>
+                </tr>
+                <tr>
+                    <th>Anio</th>
+                    <td>{{ Anio }}</td>
+                </tr>
+                <tr>
+                    <th>Cantidad de Millas</th>
+                    <td>{{ CantidadMillas }}</td>
+                </tr>
+                <tr>
+                    <th>Motor</th>
+                    <td>{{ Motor }}</td>
+                </tr>
+                <tr>
+                    <th>Cantidad de Pasajeros</th>
+                    <td>{{ CantidadPasajeros }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="events-info">
+            <h2>Vehicle Events</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ Eventos }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

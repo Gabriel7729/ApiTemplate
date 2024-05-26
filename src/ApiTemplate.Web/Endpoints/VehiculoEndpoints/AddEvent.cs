@@ -28,7 +28,7 @@ public class AddEvent : EndpointBaseAsync
   [SwaggerOperation(
       Summary = "Creates a new Vehiculo",
       Description = "Creates a new Vehiculo",
-      OperationId = "Vehiculo.Create",
+      OperationId = "VehiculoEvent.Create",
       Tags = new[] { "VehiculoEndpoints" })
   ]
   public override async Task<ActionResult<VehiculoEventoResponseDto>> HandleAsync(VehiculoEventoDto request,

@@ -27,7 +27,7 @@ public class GetById : EndpointBaseAsync
   [SwaggerOperation(
       Summary = "List all Vehiculos",
       Description = "List all Vehiculos",
-      OperationId = "Vehiculo.ListPaginated",
+      OperationId = "Vehiculo.GetById",
       Tags = new[] { "VehiculoEndpoints" })
   ]
   public override async Task<ActionResult<VehiculoResponseDto>> HandleAsync(Guid vehiculoId,
