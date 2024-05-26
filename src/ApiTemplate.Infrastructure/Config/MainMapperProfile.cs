@@ -1,5 +1,5 @@
-﻿using ApiTemplate.Core.Entities.CarfaxAggregate;
-using ApiTemplate.Infrastructure.Dto.VehiculoDtos;
+﻿using ApiTemplate.Core.Entities.PersonaAggregate;
+using ApiTemplate.Infrastructure.Dto.PersonaDtos;
 using AutoMapper;
 
 namespace ApiTemplate.Infrastructure.Config;
@@ -7,10 +7,10 @@ public class MainMapperProfile : Profile
 {
   public MainMapperProfile()
   {
-    CreateMap<Vehiculo, VehiculoDto>().ReverseMap();
-    CreateMap<Vehiculo, VehiculoResponseDto>().ReverseMap();
+    CreateMap<Persona, PersonaDto>().ReverseMap();
+    CreateMap<Persona, PersonaResponseDto>().ReverseMap();
 
-    CreateMap<VehiculoEvento, VehiculoEventoDto>().ReverseMap();
-    CreateMap<VehiculoEvento, VehiculoEventoResponseDto>().ReverseMap();
+    CreateMap<PersonaEvento, PersonaEventoDto>().ReverseMap();
+    CreateMap<PersonaEvento, PersonaEventoResponseDto>().ReverseMap();
   }
 }

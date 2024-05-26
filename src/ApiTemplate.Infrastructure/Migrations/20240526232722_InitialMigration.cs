@@ -9,17 +9,17 @@ public partial class InitialMigration : Migration
       protected override void Up(MigrationBuilder migrationBuilder)
       {
           migrationBuilder.CreateTable(
-              name: "Vehiculos",
+              name: "Personas",
               columns: table => new
               {
                   Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                  Matricula = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                  Marca = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                  Modelo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                  Anio = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                  CantidadMillas = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                  Motor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                  CantidadPasajeros = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                  TipoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                  Documento = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                  Nombres = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                  Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                  BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                  Sexo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                  FelicidadAcumulada = table.Column<int>(type: "int", nullable: false),
                   Deleted = table.Column<bool>(type: "bit", nullable: false),
                   DeletedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                   CreatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -30,18 +30,20 @@ public partial class InitialMigration : Migration
               },
               constraints: table =>
               {
-                  table.PrimaryKey("PK_Vehiculos", x => x.Id);
+                  table.PrimaryKey("PK_Personas", x => x.Id);
               });
 
           migrationBuilder.CreateTable(
-              name: "VehiculoEventos",
+              name: "PersonaEventos",
               columns: table => new
               {
                   Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                   Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                   Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                  FechaInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
+                  Duracion = table.Column<int>(type: "int", nullable: false),
                   Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                  VehiculoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                  PersonaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                   Deleted = table.Column<bool>(type: "bit", nullable: false),
                   DeletedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                   CreatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -52,27 +54,27 @@ public partial class InitialMigration : Migration
               },
               constraints: table =>
               {
-                  table.PrimaryKey("PK_VehiculoEventos", x => x.Id);
+                  table.PrimaryKey("PK_PersonaEventos", x => x.Id);
                   table.ForeignKey(
-                      name: "FK_VehiculoEventos_Vehiculos_VehiculoId",
-                      column: x => x.VehiculoId,
-                      principalTable: "Vehiculos",
+                      name: "FK_PersonaEventos_Personas_PersonaId",
+                      column: x => x.PersonaId,
+                      principalTable: "Personas",
                       principalColumn: "Id",
                       onDelete: ReferentialAction.Cascade);
               });
 
           migrationBuilder.CreateIndex(
-              name: "IX_VehiculoEventos_VehiculoId",
-              table: "VehiculoEventos",
-              column: "VehiculoId");
+              name: "IX_PersonaEventos_PersonaId",
+              table: "PersonaEventos",
+              column: "PersonaId");
       }
 
       protected override void Down(MigrationBuilder migrationBuilder)
       {
           migrationBuilder.DropTable(
-              name: "VehiculoEventos");
+              name: "PersonaEventos");
 
           migrationBuilder.DropTable(
-              name: "Vehiculos");
+              name: "Personas");
       }
   }

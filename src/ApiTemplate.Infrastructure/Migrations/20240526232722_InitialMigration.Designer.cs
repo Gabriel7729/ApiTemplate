@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiTemplate.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240526215329_InitialMigration")]
+    [Migration("20240526232722_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,23 +24,18 @@ namespace ApiTemplate.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ApiTemplate.Core.Entities.CarfaxAggregate.Vehiculo", b =>
+            modelBuilder.Entity("ApiTemplate.Core.Entities.PersonaAggregate.Persona", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Anio")
+                    b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CantidadMillas")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CantidadPasajeros")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -57,19 +52,22 @@ namespace ApiTemplate.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("DeletedDate")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Marca")
+                    b.Property<string>("Documento")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Matricula")
+                    b.Property<int>("FelicidadAcumulada")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Modelo")
+                    b.Property<string>("Sexo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Motor")
+                    b.Property<string>("TipoDocumento")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -81,10 +79,10 @@ namespace ApiTemplate.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vehiculos");
+                    b.ToTable("Personas");
                 });
 
-            modelBuilder.Entity("ApiTemplate.Core.Entities.CarfaxAggregate.VehiculoEvento", b =>
+            modelBuilder.Entity("ApiTemplate.Core.Entities.PersonaAggregate.PersonaEvento", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -109,9 +107,18 @@ namespace ApiTemplate.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Duracion")
+                        .HasColumnType("int");
+
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PersonaId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Tipo")
                         .IsRequired()
@@ -123,26 +130,23 @@ namespace ApiTemplate.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("UpdatedDate")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid>("VehiculoId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("VehiculoId");
+                    b.HasIndex("PersonaId");
 
-                    b.ToTable("VehiculoEventos");
+                    b.ToTable("PersonaEventos");
                 });
 
-            modelBuilder.Entity("ApiTemplate.Core.Entities.CarfaxAggregate.VehiculoEvento", b =>
+            modelBuilder.Entity("ApiTemplate.Core.Entities.PersonaAggregate.PersonaEvento", b =>
                 {
-                    b.HasOne("ApiTemplate.Core.Entities.CarfaxAggregate.Vehiculo", null)
+                    b.HasOne("ApiTemplate.Core.Entities.PersonaAggregate.Persona", null)
                         .WithMany("Eventos")
-                        .HasForeignKey("VehiculoId")
+                        .HasForeignKey("PersonaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ApiTemplate.Core.Entities.CarfaxAggregate.Vehiculo", b =>
+            modelBuilder.Entity("ApiTemplate.Core.Entities.PersonaAggregate.Persona", b =>
                 {
                     b.Navigation("Eventos");
                 });

@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using ApiTemplate.Core.Entities.CarfaxAggregate;
+using ApiTemplate.Core.Entities.PersonaAggregate;
 using ApiTemplate.Core.Interfaces;
 using ApiTemplate.Infrastructure.Data;
 using ApiTemplate.Infrastructure.Services;
@@ -20,7 +20,7 @@ public class DefaultInfrastructureModule : Module
       public DefaultInfrastructureModule(bool isDevelopment, Assembly? callingAssembly = null)
       {
           _isDevelopment = isDevelopment;
-          var coreAssembly = Assembly.GetAssembly(typeof(Vehiculo)); // TODO: Replace "Project" with any type from your Core project
+          var coreAssembly = Assembly.GetAssembly(typeof(Persona)); // TODO: Replace "Project" with any type from your Core project
           var infrastructureAssembly = Assembly.GetAssembly(typeof(StartupSetup));
           if (coreAssembly != null)
           {

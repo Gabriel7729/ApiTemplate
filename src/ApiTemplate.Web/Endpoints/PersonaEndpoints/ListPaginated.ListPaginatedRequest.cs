@@ -1,4 +1,4 @@
-﻿namespace ApiTemplate.Web.Endpoints.VehiculoEndpoints;
+﻿namespace ApiTemplate.Web.Endpoints.PersonaEndpoints;
 
 public class ListPaginatedRequest
 {

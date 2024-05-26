@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carfax Report</title>
+    <title>Reporte de Persona</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,21 +24,21 @@
                 margin: 0;
             }
 
-        .vehicle-info, .events-info {
+        .persona-info, .eventos-info {
             margin-bottom: 20px;
         }
 
-            .vehicle-info table, .events-info table {
+            .persona-info table, .eventos-info table {
                 width: 100%;
                 border-collapse: collapse;
             }
 
-            .vehicle-info th, .vehicle-info td, .events-info th, .events-info td {
+            .persona-info th, .persona-info td, .eventos-info th, .eventos-info td {
                 border: 1px solid #ddd;
                 padding: 8px;
             }
 
-            .vehicle-info th, .events-info th {
+            .persona-info th, .eventos-info th {
                 background-color: #f2f2f2;
                 text-align: left;
             }
@@ -47,48 +47,50 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Carfax Report</h1>
+            <h1>Reporte de Persona</h1>
         </div>
-        <div class="vehicle-info">
-            <h2>Vehicle Information</h2>
+        <div class="persona-info">
+            <h2>Información de la Persona</h2>
             <table>
                 <tr>
-                    <th>Matricula</th>
-                    <td>{{ Matricula }}</td>
+                    <th>Tipo de Documento</th>
+                    <td>{{ TipoDocumento }}</td>
                 </tr>
                 <tr>
-                    <th>Marca</th>
-                    <td>{{ Marca }}</td>
+                    <th>Documento</th>
+                    <td>{{ Documento }}</td>
                 </tr>
                 <tr>
-                    <th>Modelo</th>
-                    <td>{{ Modelo }}</td>
+                    <th>Nombres</th>
+                    <td>{{ Nombres }}</td>
                 </tr>
                 <tr>
-                    <th>Anio</th>
-                    <td>{{ Anio }}</td>
+                    <th>Apellidos</th>
+                    <td>{{ Apellidos }}</td>
                 </tr>
                 <tr>
-                    <th>Cantidad de Millas</th>
-                    <td>{{ CantidadMillas }}</td>
+                    <th>Fecha de Nacimiento</th>
+                    <td>{{ BirthDate }}</td>
                 </tr>
                 <tr>
-                    <th>Motor</th>
-                    <td>{{ Motor }}</td>
+                    <th>Sexo</th>
+                    <td>{{ Sexo }}</td>
                 </tr>
                 <tr>
-                    <th>Cantidad de Pasajeros</th>
-                    <td>{{ CantidadPasajeros }}</td>
+                    <th>Felicidad Acumulada</th>
+                    <td>{{ FelicidadAcumulada }}</td>
                 </tr>
             </table>
         </div>
-        <div class="events-info">
-            <h2>Vehicle Events</h2>
+        <div class="eventos-info">
+            <h2>Eventos de la Persona</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Tipo</th>
                         <th>Descripción</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Duración (días)</th>
                         <th>Estado</th>
                     </tr>
                 </thead>

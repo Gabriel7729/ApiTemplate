@@ -7,7 +7,7 @@ public class DefaultCoreModule : Module
 {
   protected override void Load(ContainerBuilder builder)
   {
-    builder.RegisterType<VehiculoService>().As<IVehiculoService>()
+    builder.RegisterType<PersonaService>().As<IPersonaService>()
       .InstancePerLifetimeScope();
   }
 }
