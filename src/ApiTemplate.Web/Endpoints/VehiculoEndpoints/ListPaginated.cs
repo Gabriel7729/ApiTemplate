@@ -31,7 +31,7 @@ public class ListPaginated : EndpointBaseAsync
       OperationId = "Vehiculo.ListPaginated",
       Tags = new[] { "VehiculoEndpoints" })
   ]
-  public override async Task<ActionResult<PaginationResult<List<VehiculoResponseDto>>>> HandleAsync(ListPaginatedRequest request,
+  public override async Task<ActionResult<PaginationResult<List<VehiculoResponseDto>>>> HandleAsync([FromQuery] ListPaginatedRequest request,
       CancellationToken cancellationToken)
   {
     try
