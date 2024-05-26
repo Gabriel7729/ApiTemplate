@@ -1,13 +1,11 @@
-﻿using Autofac;
-using MediatR;
-using MediatR.Pipeline;
-using ApiTemplate.Core.Interfaces;
-using ApiTemplate.Core.ProjectAggregate;
-using ApiTemplate.Infrastructure.Config;
+﻿using System.Reflection;
+using ApiTemplate.Core.Entities.CarfaxAggregate;
 using ApiTemplate.Infrastructure.Data;
 using ApiTemplate.SharedKernel;
 using ApiTemplate.SharedKernel.Interfaces;
-using System.Reflection;
+using Autofac;
+using MediatR;
+using MediatR.Pipeline;
 using Module = Autofac.Module;
 
 namespace ApiTemplate.Infrastructure;
@@ -20,7 +18,7 @@ public class DefaultInfrastructureModule : Module
       public DefaultInfrastructureModule(bool isDevelopment, Assembly? callingAssembly = null)
       {
           _isDevelopment = isDevelopment;
-          var coreAssembly = Assembly.GetAssembly(typeof(Project)); // TODO: Replace "Project" with any type from your Core project
+          var coreAssembly = Assembly.GetAssembly(typeof(Vehiculo)); // TODO: Replace "Project" with any type from your Core project
           var infrastructureAssembly = Assembly.GetAssembly(typeof(StartupSetup));
           if (coreAssembly != null)
           {
@@ -87,12 +85,6 @@ public class DefaultInfrastructureModule : Module
               .AsClosedTypesOf(mediatrOpenType)
               .AsImplementedInterfaces();
           }
-
-          builder.RegisterType<EmailSender>().As<IEmailSender>()
-              .InstancePerLifetimeScope();
-    
-          builder.RegisterType<RestClient>().As<IRestClient>()
-                    .InstancePerLifetimeScope();
       }
 
       private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)

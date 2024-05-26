@@ -1,9 +1,9 @@
-﻿using ApiTemplate.Core.ProjectAggregate;
+﻿using System.Reflection;
+using ApiTemplate.Core.Entities.CarfaxAggregate;
 using ApiTemplate.Infrastructure.Data.Extensions;
 using ApiTemplate.SharedKernel;
 using ApiTemplate.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace ApiTemplate.Infrastructure.Data;
 
@@ -18,8 +18,8 @@ public class AppDbContext : DbContext
     _dispatcher = dispatcher;
   }
 
-  public DbSet<ToDoItem> ToDoItems => Set<ToDoItem>();
-  public DbSet<Project> Projects => Set<Project>();
+  public DbSet<Vehiculo> Vehiculos => Set<Vehiculo>();
+  public DbSet<VehiculoEvento> VehiculoEventos => Set<VehiculoEvento>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
