@@ -20,6 +20,8 @@
     <PackageReference Include="NETStandard.Library" />
     <PackageReference Include="AutoMapper" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <PackageReference Include="DinkToPdf" />
+    <PackageReference Include="DinkToPdfCopyDependencies" />
   </ItemGroup>
   
   <ItemGroup>
