@@ -4,6 +4,8 @@ using ApiTemplate.Web.Config;
 using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using DinkToPdf.Contracts;
+using DinkToPdf;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,9 @@ builder.Services.ConfigDbConnection(builder.Configuration);
 #endregion
 
 #region Configurations
+
+//DinkToPdf configuration
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 

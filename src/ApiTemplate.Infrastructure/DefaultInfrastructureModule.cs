@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using ApiTemplate.Core.Entities.CarfaxAggregate;
+using ApiTemplate.Core.Interfaces;
 using ApiTemplate.Infrastructure.Data;
+using ApiTemplate.Infrastructure.Services;
 using ApiTemplate.SharedKernel;
 using ApiTemplate.SharedKernel.Interfaces;
 using Autofac;
@@ -85,7 +87,10 @@ public class DefaultInfrastructureModule : Module
               .AsClosedTypesOf(mediatrOpenType)
               .AsImplementedInterfaces();
           }
-      }
+
+          builder.RegisterType<PdfService>().As<IPdfService>()
+            .InstancePerLifetimeScope();
+  }
 
       private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)
       {
