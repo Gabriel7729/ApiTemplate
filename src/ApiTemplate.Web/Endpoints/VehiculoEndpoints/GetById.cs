@@ -23,14 +23,14 @@ public class GetById : EndpointBaseAsync
     _mapper = mapper;
   }
 
-  [HttpGet("/Vehiculos/{vehiculo:guid}")]
+  [HttpGet("/Vehiculos/{vehiculoId:guid}")]
   [SwaggerOperation(
       Summary = "List all Vehiculos",
       Description = "List all Vehiculos",
       OperationId = "Vehiculo.GetById",
       Tags = new[] { "VehiculoEndpoints" })
   ]
-  public override async Task<ActionResult<VehiculoResponseDto>> HandleAsync(Guid vehiculoId,
+  public override async Task<ActionResult<VehiculoResponseDto>> HandleAsync([FromRoute] Guid vehiculoId,
       CancellationToken cancellationToken)
   {
     try

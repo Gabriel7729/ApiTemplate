@@ -24,14 +24,14 @@ public class CarfaxPdfReport : EndpointBaseAsync
     _vehiculoService = vehiculoService;
   }
 
-  [HttpPost("/Vehiculos/{vehiculo:guid}/Carfax/Report")]
+  [HttpPost("/Vehiculos/{vehiculoId:guid}/Carfax/Report")]
   [SwaggerOperation(
       Summary = "Get Carfax Report",
       Description = "Get Carfax Report",
       OperationId = "Vehiculo.Carfax.Report",
       Tags = new[] { "VehiculoEndpoints" })
   ]
-  public override async Task<ActionResult> HandleAsync(Guid vehiculoId,
+  public override async Task<ActionResult> HandleAsync([FromRoute] Guid vehiculoId,
       CancellationToken cancellationToken)
   {
     try
