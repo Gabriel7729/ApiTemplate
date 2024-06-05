@@ -3,7 +3,7 @@
 namespace ApiTemplate.Core.Extensions;
 public static class FileManagment
 {
-  public static string ReadEmailTemplate(string fileName, string templpateRouteEmail, string? templateRoute = null)
+  public static string ReadEmailTemplate(string templpateRouteEmail, string fileName, string? templateRoute = null)
   {
     templateRoute ??= templpateRouteEmail;
     string textEmailTemplate = Path.Combine(templateRoute, fileName);
