@@ -20,7 +20,7 @@ public class CarfaxPdfReport : EndpointBaseAsync
 
   public CarfaxPdfReport(IRepository<Vehiculo> repository, IVehiculoService vehiculoService)
   {
-    _repository = repository;
+    _repository = repository; 
     _vehiculoService = vehiculoService;
   }
 
