@@ -66,6 +66,40 @@ public class AmazonRekognitionService : IAmazonRekognitionService
     return cedulaDataResponse;
   }
 
+  public async Task<BuscadosResponse> FindBuscadoPeopleAsync(IFormFile file)
+  {
+    using var memoryStream = new MemoryStream();
+    await file.CopyToAsync(memoryStream);
+    memoryStream.Seek(0, SeekOrigin.Begin);
+
+    var image = new Image
+    {
+      Bytes = memoryStream
+    };
+    SearchFacesByImageRequest request = new SearchFacesByImageRequest()
+
+    {
+      Image = image,
+
+      CollectionId = "Buscados",
+
+
+    };
+
+    SearchFacesByImageResponse response = await _client.SearchFacesByImageAsync(request);
+
+    BuscadosResponse buscadosResponse = new();
+
+    foreach (var item in response.FaceMatches)
+
+    {
+      buscadosResponse.FaceId = item.Face.FaceId;
+      buscadosResponse.ExternalImageId = item.Face.ExternalImageId;
+      buscadosResponse.Confidence = item.Face.Confidence.ToString();
+    }
+    return buscadosResponse;
+  }
+
   private static string RemoveCharacter(string input, char character)
   {
     return input.Replace(character.ToString(), string.Empty);
