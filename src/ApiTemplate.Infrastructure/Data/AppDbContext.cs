@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using ApiTemplate.Core.Entities.CarfaxAggregate;
+using ApiTemplate.Core.Entities.PersonasAggregate;
 using ApiTemplate.Infrastructure.Data.Extensions;
 using ApiTemplate.SharedKernel;
 using ApiTemplate.SharedKernel.Interfaces;
@@ -18,6 +19,7 @@ public class AppDbContext : DbContext
     _dispatcher = dispatcher;
   }
 
+  public DbSet<Persona> Personas => Set<Persona>();
   public DbSet<Vehiculo> Vehiculos => Set<Vehiculo>();
   public DbSet<VehiculoEvento> VehiculoEventos => Set<VehiculoEvento>();
 
