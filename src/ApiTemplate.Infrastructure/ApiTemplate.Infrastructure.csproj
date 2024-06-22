@@ -23,6 +23,7 @@
     <PackageReference Include="DinkToPdf" />
     <PackageReference Include="DinkToPdfCopyDependencies" />
     <PackageReference Include="AWSSDK.Rekognition" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
   </ItemGroup>
   
   <ItemGroup>

@@ -93,6 +93,9 @@ public class DefaultInfrastructureModule : Module
 
           builder.RegisterType<AmazonRekognitionService>().As<IAmazonRekognitionService>()
             .InstancePerLifetimeScope();
+
+          builder.RegisterType<EmailSender>().As<IEmailSender>()
+            .InstancePerLifetimeScope();
       }
 
       private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)
