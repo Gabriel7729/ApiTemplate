@@ -19,12 +19,15 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.CheckConsentNeeded = context => true;
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
+
 #region Database
 builder.Services.ConfigDbConnection(builder.Configuration);
 
 #endregion
 
 #region Configurations
+
+builder.Services.AddHttpClient();
 
 //DinkToPdf configuration
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));

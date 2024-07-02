@@ -1,4 +1,6 @@
 ﻿using ApiTemplate.Core.Entities.CarfaxAggregate;
+using ApiTemplate.Core.Entities.TravelAggregate;
+using ApiTemplate.Infrastructure.Dto.TravelDtos;
 using ApiTemplate.Infrastructure.Dto.VehiculoDtos;
 using AutoMapper;
 
@@ -12,5 +14,8 @@ public class MainMapperProfile : Profile
 
     CreateMap<VehiculoEvento, VehiculoEventoDto>().ReverseMap();
     CreateMap<VehiculoEvento, VehiculoEventoResponseDto>().ReverseMap();
+
+    CreateMap<Travel, TravelDto>().ReverseMap();
+    CreateMap<Travel, TravelResponseDto>().ReverseMap();
   }
 }

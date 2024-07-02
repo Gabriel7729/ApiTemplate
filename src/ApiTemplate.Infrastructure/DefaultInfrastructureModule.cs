@@ -90,7 +90,13 @@ public class DefaultInfrastructureModule : Module
 
           builder.RegisterType<PdfService>().As<IPdfService>()
             .InstancePerLifetimeScope();
-  }
+
+          builder.RegisterType<AmazonRekognitionService>().As<IAmazonRekognitionService>()
+            .InstancePerLifetimeScope();
+
+          builder.RegisterType<EmailSender>().As<IEmailSender>()
+            .InstancePerLifetimeScope();
+      }
 
       private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)
       {

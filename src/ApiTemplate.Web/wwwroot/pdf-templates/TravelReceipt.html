@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .header, .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+            .header h1, .footer p {
+                margin: 0;
+            }
+
+        .main {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .main h2 {
+                margin-top: 0;
+            }
+
+            .main table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+
+            .main table, .main th, .main td {
+                border: 1px solid #ddd;
+            }
+
+            .main th, .main td {
+                padding: 10px;
+                text-align: left;
+            }
+
+            .main th {
+                background-color: #f4f4f4;
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Travel Receipt</h1>
+    </div>
+    <div class="container">
+        <div class="main">
+            <h2>Receipt Details</h2>
+            <table>
+                <tr>
+                    <th>Tipo de Documento</th>
+                    <td>{{TipoDocumento}}</td>
+                </tr>
+                <tr>
+                    <th>Documento</th>
+                    <td>{{Documento}}</td>
+                </tr>
+                <tr>
+                    <th>Nombres</th>
+                    <td>{{Nombres}}</td>
+                </tr>
+                <tr>
+                    <th>Apellidos</th>
+                    <td>{{Apellidos}}</td>
+                </tr>
+                <tr>
+                    <th>Dirección</th>
+                    <td>{{Direccion}}</td>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <td>{{Telefono}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha del Viaje</th>
+                    <td>{{FechadelViaje}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha de Registro</th>
+                    <td>{{FechaRegistro}}</td>
+                </tr>
+                <tr>
+                    <th>Estado</th>
+                    <td>{{Estado}}</td>
+                </tr>
+                <tr>
+                    <th>Monto Pagado</th>
+                    <td>{{MontoPagado}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Travel Agency. All rights reserved.</p>
+    </div>
+</body>
+</html>
