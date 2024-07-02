@@ -12,5 +12,8 @@ public class DefaultCoreModule : Module
 
     builder.RegisterType<OtpService>().As<IOtpService>()
       .InstancePerLifetimeScope();
+
+    builder.RegisterType<TravelService>().As<ITravelService>()
+      .InstancePerLifetimeScope();
   }
 }

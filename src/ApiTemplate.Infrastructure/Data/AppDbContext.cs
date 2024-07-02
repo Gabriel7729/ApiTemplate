@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using ApiTemplate.Core.Entities.CarfaxAggregate;
 using ApiTemplate.Core.Entities.PersonasAggregate;
+using ApiTemplate.Core.Entities.TravelAggregate;
 using ApiTemplate.Core.Entities.ValidationsAggregate;
 using ApiTemplate.Infrastructure.Data.Extensions;
 using ApiTemplate.SharedKernel;
@@ -24,6 +25,7 @@ public class AppDbContext : DbContext
   public DbSet<Vehiculo> Vehiculos => Set<Vehiculo>();
   public DbSet<VehiculoEvento> VehiculoEventos => Set<VehiculoEvento>();
   public DbSet<VerificationCode> VerificationCodes => Set<VerificationCode>();
+  public DbSet<Travel> Travels => Set<Travel>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
